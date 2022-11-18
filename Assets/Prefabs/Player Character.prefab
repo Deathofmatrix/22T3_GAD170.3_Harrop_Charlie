@@ -132,11 +132,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fe3ad84ead3974cb6703abd526dab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
   movementSpeed: 12
   horizontalSpeed: 2
   verticalSpeed: 2
   yaw: 0
   pitch: 0
+  minPitch: -30
+  maxPitch: 60
   jumpHeight: 2
   gravity: -20
 --- !u!54 &600408146080705015

@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TheVoid : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    [SerializeField] private string sceneToLoad;
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("the collision has been triggered");
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("the collision has been triggered");
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        
     }
 }
