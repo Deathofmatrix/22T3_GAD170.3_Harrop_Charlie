@@ -3,42 +3,48 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class PauseScreen : MonoBehaviour
+namespace CharlieHarrop
 {
-    public static bool isPaused = false;
-    [SerializeField] private GameObject pauseMenuUI;
-
-    private void Update()
+    public class PauseScreen : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab))
+        public static bool isPaused = false;
+        [SerializeField] private GameObject pauseMenuUI;
+        [SerializeField] private GameObject buttonText;
+
+        private void Update()
         {
-            if (isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab))
             {
-                ResumeGame();
-            }
-            
-            else
-            {
-                PauseGame();
+                if (isPaused)
+                {
+                    ResumeGame();
+                }
+
+                else
+                {
+                    PauseGame();
+                }
             }
         }
-    }
 
-    private void ResumeGame()
-    {
-        Debug.Log("resume");
-        pauseMenuUI.SetActive(false);
-        isPaused = false;
-        Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+        private void ResumeGame()
+        {
+            Debug.Log("resume");
+            pauseMenuUI.SetActive(false);
+            isPaused = false;
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
-    private void PauseGame()
-    {
-        Debug.Log("pause");
-        pauseMenuUI.SetActive(true);
-        isPaused = true;
-        Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.Confined;
+        private void PauseGame()
+        {
+            Debug.Log("pause");
+            pauseMenuUI.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.Confined;
+            buttonText.SetActive(false);
+        }
     }
 }
+

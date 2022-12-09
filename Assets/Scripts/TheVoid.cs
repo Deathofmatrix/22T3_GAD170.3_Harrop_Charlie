@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TheVoid : MonoBehaviour
+namespace CharlieHarrop
 {
-    [SerializeField] private string sceneToLoad;
-    private void OnTriggerEnter(Collider other)
+    public class TheVoid : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        [SerializeField] private string sceneToLoad;
+        private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("the collision has been triggered");
-            SceneManager.LoadScene(sceneToLoad);
+            if (other.CompareTag("Player"))
+            {
+                Debug.Log("the collision has been triggered");
+                SceneManager.LoadScene(sceneToLoad);
+            }
+
         }
-        
     }
 }
+
